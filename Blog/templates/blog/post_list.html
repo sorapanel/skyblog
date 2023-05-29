@@ -1,0 +1,17 @@
+{% extends "blog/base.html" %}
+{% block main %}
+<h2>記事一覧</h2>
+<ul class="list-group list-group-flush">
+    {% for post in object_list %}
+    <li class="list-group-item"><a href="{% url 'detail' post.id %}">{{ post.title }}</a></li>
+    {% endfor %}
+</ul>
+<br>
+<br>
+<br>
+{% if user.is_authenticated %}
+<p><a class="btn btn-outline-info btn-lg" href="{% url 'create' %}">新規投稿</a></p>
+{% endif %}
+<br>
+<p><a href="{% url 'index' %}">アカウント管理に戻る</a></p>
+{% endblock %}
