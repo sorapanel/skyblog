@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Blog',
+    'social_django',
 ]
 
 MIDDLEWARE = [
@@ -66,6 +67,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
@@ -107,9 +110,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ja'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Tokyo'
 
 USE_I18N = True
 
@@ -134,4 +137,13 @@ LOGOUT_REDIRECT_URL = "/login/"
 
 AUTH_USER_MODEL = 'Registration.User'
 
-FRONTEND_URL = "http://127.0.0.1:8000"
+FRONTEND_URL = "http://https://sorapanelblog.onrender.com/" #Renderでデプロイしたことにより変更
+
+AUTHENTICATION_BACKENDS = [
+    'social_core.backends.twitter.TwitterOAuth',
+    'django.contrib.auth.backends.ModelBackend',
+]
+
+SOCIAL_AUTH_TWITTER_KEY = 'P2mCEsA3Hgj0XgYHw78CX7Lyp'
+SOCIAL_AUTH_TWITTER_SECRET = 'bPUZKzzA4HrePkSyrCSf8PPUe6kteRB30haqwoWv7PQVNyavju'
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/'
