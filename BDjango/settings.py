@@ -137,7 +137,7 @@ LOGOUT_REDIRECT_URL = "/login/"
 
 AUTH_USER_MODEL = 'Registration.User'
 
-FRONTEND_URL = "http://https://sorapanelblog.onrender.com/" #Renderでデプロイしたことにより変更
+FRONTEND_URL = "https://sorapanelblog.onrender.com/" #Renderでデプロイしたことにより変更
 
 AUTHENTICATION_BACKENDS = [
     'social_core.backends.twitter.TwitterOAuth',
